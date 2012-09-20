@@ -1,0 +1,30 @@
+<%- model_class = Especy.new.class -%>
+
+<h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
+
+<table id="especies" class = "table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:latin_name) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @especies.each do |especy| %>
+      <tr>
+        <td><%= link_to especy.name, especy_path(especy) %></td>
+        <td><%= especy.latin_name  %></td>
+        <td><%= link_to '<i class= "icon-eye-open"></i>'.html_safe, especy_path(especy) %>
+            <%= link_to '<i class= "icon-pencil"></i>'.html_safe, edit_especy_path(especy) %>
+            <%= link_to '<i class= "icon-trash"></i>'.html_safe, especy, method: :delete, data: { confirm: 'Are you sure?' } %></td>     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+<br/>
+<%= link_to 'New Especies', new_especy_path, :class => 'btn btn-primary' %>
+
+

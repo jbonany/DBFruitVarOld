@@ -1,0 +1,69 @@
+<%= form_for(@variety) do |f| %>
+  <% if @variety.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@variety.errors.count, "error") %> prohibited this variety from being saved:</h2>
+
+      <ul>
+      <% @variety.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cultivar %><br />
+    <%= f.text_field :cultivar %>
+  </div>
+  <div class="field">
+    <%= f.label :clon %><br />
+    <%= f.text_field :clon %>
+  </div>
+  <div class="field">
+    <%= f.label :clone %><br />
+    <%= f.text_field :clone %>
+  </div>
+  <div class="field">
+    <%= f.label :synonim %><br />
+    <%= f.text_field :synonim %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br />
+    <%= f.number_field :country_id %>
+  </div>
+  <div class="field">
+    <%= f.label :breeder_idmale_parent %><br />
+    <%= f.text_field :breeder_idmale_parent %>
+  </div>
+  <div class="field">
+    <%= f.label :female_parent %><br />
+    <%= f.text_field :female_parent %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :group_id %><br />
+    <%= f.number_field :group_id %>
+  </div>
+  <div class="field">
+    <%= f.label :observations_cat %><br />
+    <%= f.text_area :observations_cat %>
+  </div>
+  <div class="field">
+    <%= f.label :observations_esp %><br />
+    <%= f.text_area :observations_esp %>
+  </div>
+  <div class="field">
+    <%= f.label :observations_eng %><br />
+    <%= f.text_area :observations_eng %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

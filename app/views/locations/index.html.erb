@@ -1,0 +1,28 @@
+<%- model_class = Location.new.class -%>
+
+<h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
+
+<table id="locations" class = "table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= link_to location.name, location_path(location) %></td>
+        <td><%= link_to '<i class= "icon-eye-open"></i>'.html_safe, location_path(location) %>
+            <%= link_to '<i class= "icon-pencil"></i>'.html_safe, edit_location_path(location) %>
+            <%= link_to '<i class= "icon-trash"></i>'.html_safe, location, method: :delete, data: { confirm: 'Are you sure?' } %></td>     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+<br/>
+<%= link_to 'New Location', new_location_path, :class => 'btn btn-primary' %>
+
+

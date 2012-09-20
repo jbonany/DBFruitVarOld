@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  cultivar: MyString
+  clon: MyString
+  clone: MyString
+  synonim: MyString
+  country_id: 1
+  breeder_idmale_parent: MyString
+  female_parent: MyString
+  year: 1
+  group_id: 1
+  observations_cat: MyText
+  observations_esp: MyText
+  observations_eng: MyText
+
+two:
+  name: MyString
+  cultivar: MyString
+  clon: MyString
+  clone: MyString
+  synonim: MyString
+  country_id: 1
+  breeder_idmale_parent: MyString
+  female_parent: MyString
+  year: 1
+  group_id: 1
+  observations_cat: MyText
+  observations_esp: MyText
+  observations_eng: MyText

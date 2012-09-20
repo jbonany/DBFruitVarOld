@@ -1,0 +1,36 @@
+<%- model_class = Country.new.class -%>
+
+<h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
+
+<table id="countries" class = "table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:iso) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:printable_name) %></th>
+      <th><%= model_class.human_attribute_name(:iso3) %></th>
+      <th><%= model_class.human_attribute_name(:numcode) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><%= country.iso %></td>
+        <td><%= link_to country.name, country_path(country) %></td>
+        <td><%= country.printable_name%></td>
+        <td><%= country.iso3 %></td>
+        <td><%= country.numcode %></td>
+        <td><%= link_to '<i class= "icon-eye-open"></i>'.html_safe, country_path(country) %>
+            <%= link_to '<i class= "icon-pencil"></i>'.html_safe, edit_country_path(country) %>
+            <%= link_to '<i class= "icon-trash"></i>'.html_safe, country, method: :delete, data: { confirm: 'Are you sure?' } %></td>     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+<br/>
+<%= link_to 'New Country', new_country_path, :class => 'btn btn-primary' %>
+
+

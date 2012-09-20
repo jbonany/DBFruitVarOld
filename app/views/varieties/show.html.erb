@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @variety.name %>
+</p>
+
+<p>
+  <b>Cultivar:</b>
+  <%= @variety.cultivar %>
+</p>
+
+<p>
+  <b>Clon:</b>
+  <%= @variety.clon %>
+</p>
+
+<p>
+  <b>Clone:</b>
+  <%= @variety.clone %>
+</p>
+
+<p>
+  <b>Synonim:</b>
+  <%= @variety.synonim %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @variety.country_id %>
+</p>
+
+<p>
+  <b>Breeder idmale parent:</b>
+  <%= @variety.breeder_idmale_parent %>
+</p>
+
+<p>
+  <b>Female parent:</b>
+  <%= @variety.female_parent %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @variety.year %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @variety.group_id %>
+</p>
+
+<p>
+  <b>Observations cat:</b>
+  <%= @variety.observations_cat %>
+</p>
+
+<p>
+  <b>Observations esp:</b>
+  <%= @variety.observations_esp %>
+</p>
+
+<p>
+  <b>Observations eng:</b>
+  <%= @variety.observations_eng %>
+</p>
+
+
+<%= link_to 'Edit', edit_variety_path(@variety) %> |
+<%= link_to 'Back', varieties_path %>

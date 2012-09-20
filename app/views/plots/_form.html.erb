@@ -1,0 +1,36 @@
+<%= form_for @plot, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field', :size => 60 %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :acronym, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :acronym, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :location_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= collection_select(:plot, :location_id, @locations=Location.find(:all), :id, :name, options ={:prompt => "-Select a location"}) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :especie_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= collection_select(:plot, :especy_id, @especies=Especy.find(:all), :id, :name, options ={:prompt => "-Select an especies"}) %>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', plots_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

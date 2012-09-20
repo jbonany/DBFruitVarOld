@@ -1,0 +1,35 @@
+<%- model_class = User.new.class -%>
+
+<h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
+
+<table id="users" class = "table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th>Roles</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to_if(can?(:read, User), "#{user.email}", user_path(user.id)) %>
+        <td><%= "#{user.roles.collect{|r| r.name}}" %></td>
+        <td><%= link_to_if(can?(:show, User), '<i class= "icon-eye-open"></i>'.html_safe, user_path(user)) %>
+            <%= link_to_if(can?(:edit, User), '<i class= "icon-pencil"></i>'.html_safe, edit_user_path(user)) %>
+            <%= link_to_if(can?(:delete, user), '<i class= "icon-trash"></i>'.html_safe, user, :confirm => "Are you sure?", :method => :delete) %> 
+        </td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New User', new_user_path, :class => 'btn btn-primary' %>
+
+
+
+
+
+
+
+

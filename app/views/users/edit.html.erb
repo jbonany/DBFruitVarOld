@@ -1,0 +1,50 @@
+<%- model_class = @user.class -%>
+<h2><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                 :default => "Edit #{model_class.model_name.human}") %></h2>
+
+<%= form_for @user, :html => { :method => :put} do |f| %>
+  
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'text_field' %>
+      </div>
+
+      <%= f.label :password, :class => 'control-label' %><i> (leave blank if you do not want to change it)</i>
+      <div class="controls">
+        <%= f.password_field :password, :class => 'text_field' %>
+      </div>
+      <p/>
+      <p/>
+      <p/>
+      <p/>
+      <p/>
+      <%= f.label :password_confirmation, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :class => 'text_field' %>
+      </div>
+
+      <%= f.label :current_password, :class => 'control-label' %><i> (we need your current password to confirm your changes)</i>
+      <div class="controls">
+        <%= f.password_field :current_password, :class => 'text_field' %>
+      </div>
+
+      <% if can? :read, Role %>
+        <p><%= f.label :role %></p>
+        <ul class="no-pad no-bullets">
+          <%= habtm_checkboxes(@user, :role_ids, @accessible_roles, :name) %>
+        </ul>
+      <% end %>
+
+    </div>
+    
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', users_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
+
+
