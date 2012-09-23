@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require extjs4/ext-all
 //= require bootstrap
 //= require_tree .
 

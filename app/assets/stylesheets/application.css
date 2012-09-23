@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require dataTables/jquery.dataTables.bootstrap
+ *= require extjs4/resources/css/ext-all
  *= require_tree .
  */

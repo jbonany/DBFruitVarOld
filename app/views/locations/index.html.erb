@@ -1,3 +1,4 @@
+<!--
 <%- model_class = Location.new.class -%>
 
 <h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
@@ -24,5 +25,25 @@
 <br/>
 <br/>
 <%= link_to 'New Location', new_location_path, :class => 'btn btn-primary' %>
+-->
+
+<script type="text/javascript">
+Ext.onReady(function() {
+  
+        Ext.create('Ext.container.Container', {
+            layout: 'fit',
+            renderTo: 'submain',
+            items: [
+                {
+                    xtype: 'locationlist',
+                }
+            ]
+        });
+    
+  
+
+});
+
+</script>
 
 
